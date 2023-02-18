@@ -8,7 +8,11 @@ Subject를 subscribe하고 Subject로부터 이밴트를 전달받는다.<br/>
 ## AsyncSubject
 
 AsyncSubject는 Observable이 completed되는 순간 구독자에게 마지막 이밴트를 방출한다.<br/>
+<img width="640" alt="S AsyncSubject" src="https://user-images.githubusercontent.com/70322435/219848700-69a72c1f-f68a-496e-aebd-fee04209c9fe.png">
+
 만약 Observable이 completed되지 않고 Error가 발생할 경우, AsyncSubject는 Error 이밴트를 방출한다.<br/>
+<img width="640" alt="S AsyncSubject e" src="https://user-images.githubusercontent.com/70322435/219848705-89cf1b1f-0d7f-46a5-9cbf-64bc9b4842ff.png">
+
 
 ```swift
 let observation: AsyncSubject<String?> = AsyncSubject<String?>()
@@ -43,7 +47,10 @@ AsyncSubject는 completed되는 순간 마지막의 이밴트를 방출하기 �
 ## BehaviorSubject
 
 BehaviorSubject를 subscribe하면, 가장 최신의 이밴트를 방출한다.<br/>
+<img width="640" alt="S BehaviorSubject" src="https://user-images.githubusercontent.com/70322435/219848737-7f89080d-510d-477b-bb10-67fc479df184.png">
+
 만약, 아직 아무것도 방출된 이밴트가 없다면 BehaviorSubject의 초기값을 방출하게 된다.<br/>
+<img width="640" alt="S BehaviorSubject e" src="https://user-images.githubusercontent.com/70322435/219848740-84ba0880-5247-4946-a8d3-b1bdbe066515.png">
 
 ```swift
 let observation: BehaviorSubject = BehaviorSubject(value: "Initial")
@@ -82,6 +89,8 @@ second<br/>
 
 PublishSubject는 subscribe 이후에 발생된 이밴트를 구독자에게 방출한다.<br/>
 즉, 구독하기 이전에 발생한 이밴트를 알 수 없게 된다.<br/>
+<img width="640" alt="S PublishSubject" src="https://user-images.githubusercontent.com/70322435/219848768-da71e763-e1fa-4c73-b26c-446e9ac826f7.png">
+<img width="640" alt="S PublishSubject e" src="https://user-images.githubusercontent.com/70322435/219848770-ba4defa5-01a6-4462-8950-419e0255c9fe.png">
 
 ```swift
 let observation: PublishSubject<String?> = PublishSubject<String?>()
@@ -176,3 +185,4 @@ Subject와 비슷하지만 가장 큰 차이점이 두개가 있는데,<br/>
 이다.<br/>
 즉, Relay는 next 이밴트만 방출하고, 절대 종료되지 않는다.<br/>
 크게 BehaviorRelay, PublishRelay, ReplayRelay 세 종류가 있다.<br/>
+<img width="640" alt="S ReplaySubject" src="https://user-images.githubusercontent.com/70322435/219848803-b48e03a7-3957-40b6-8b0d-93fc5b6d4445.png">
