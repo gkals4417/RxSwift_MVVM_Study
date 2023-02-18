@@ -38,6 +38,8 @@ Observable에서 Hello와 안녕이라는 이밴트가 방출되고, 완료가 �
 Bag이라는 단어 그대로 Disposable들을 담을 수 있는 클래스이다.<br/>
 Disposable에서 disposed(by:) 메서드를 호출하면 된다.<br/>
 
+![disposeBag](https://user-images.githubusercontent.com/70322435/219848659-311230ac-a5d0-4ff6-8a46-d26642662058.jpg)
+
 ```swift
 let observation: Observable<String?> = Observable.create { emitter in
     emitter.onNext("Hello")
