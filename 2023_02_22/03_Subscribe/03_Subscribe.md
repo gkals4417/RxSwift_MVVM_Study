@@ -9,6 +9,9 @@ Observable의 **방출**과 notification에 의해 작동하는 **operator**<br/
 Subscribe는 Observable과 observer을 연결해주는 역할을 한다.<br/>
 Observable에서 방출되는 항목들이나 error, completed와 같은 notification을 듣기 위해서는 Observable을 **구독**해야 하는데 이때 사용하는 operator가 바로 **subscribe**이다.<br/>
 
+![Observable_subscribe](https://user-images.githubusercontent.com/70322435/219848599-b25fef29-4067-4d14-a010-0cac676be27f.jpg)
+
+
 ## Example
 
 ```swift
