@@ -306,8 +306,10 @@ disposed<br/>
 
 empty : 방출되는 아이템이 없는 Observable을 만드는 operator. 정상적으로 종료가 된다.<br/>
 ![empty_xcode](https://user-images.githubusercontent.com/70322435/219849060-ed3a0ae9-afd9-4967-9e6a-bda5629b02d6.jpg)
+
 never : 방출되는 아이템이 없는 Observable을 만드는 operator. 종료가 되지 않는다.<br/>
 ![never_xcode](https://user-images.githubusercontent.com/70322435/219849062-48ec0953-4a53-4aae-9057-0d695b37c4bc.jpg)
+
 throw : 방출되는 아이템이 없는 Observable을 만든느 operator. error와 함께 종료가 된다. swift에서는 error로 적는다.<br/>
 ![error_xcode](https://user-images.githubusercontent.com/70322435/219849064-b591d775-7eb6-482c-8fae-e341cb790ff7.jpg)
 
