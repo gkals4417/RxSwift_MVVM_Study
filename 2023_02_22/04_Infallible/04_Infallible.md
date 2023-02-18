@@ -5,6 +5,9 @@
 InFallible은 Observable과 비슷한 형태이다.<br/>
 그렇기 때문에 이밴트를 방출하게 되는데, Observable과는 다르게 Next와 Completed만 방출하고 Error는 방출하지 않음을 보장한다.<br/>
 
+![Infallible_subscribe](https://user-images.githubusercontent.com/70322435/219848626-79e65c6c-5832-44ed-bba0-4c8d55a99db6.jpg)
+
+
 ```swift
 @IBAction func tapped(_ sender: UIButton) {
     _ = observeFunc()
