@@ -19,12 +19,12 @@ RxSwift에 대한 기본적인 내용들을 정리하고 활용하기 위해 모
 
 |No.|주제|링크|
 |:--:|:--:|:--:|
-|1|RxSwift란?|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/01_RxSwift)|
-|2|Observable|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/02_Observable)|
-|3|Subscribe|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/03_Subscribe)|
-|4|Infallible|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/04_Infallible)|
-|5|Disposable|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/05_Disposable)|
-|6|Subject|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/06_Subject)|
-|7|Create Operator|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/07_Create_Operator)|
+|1|RxSwift란?|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/01_RxSwift/01_RxSwift.md)|
+|2|Observable|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/02_Observable/02_Observable.md)|
+|3|Subscribe|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/03_Subscribe/03_Subscribe.md)|
+|4|Infallible|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/04_Infallible/04_Infallible.md)|
+|5|Disposable|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/05_Disposable/05_Disposable.md)|
+|6|Subject|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/06_Subject/06_Subject.md)|
+|7|Create Operator|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/tree/main/2023_02_22/07_Create_Operator/07_Create_Operator.md)|
 <br/>
 계속 업데이트중...<br/>
