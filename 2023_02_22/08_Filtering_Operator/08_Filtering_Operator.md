@@ -9,6 +9,7 @@ IgnoreElements는 Observable의 모든 next 이벤트를 방출하지 않는다.
 completed나 error에 대한 알림반 받고 싶은 경우, IgnoreElements를 사용하면 된다.<br/>
 
 <img width="640" alt="ignoreElements c" src="https://user-images.githubusercontent.com/70322435/219908287-e3fda96e-ab94-4590-97c3-c795c7aeb9c4.png">
+
 ![ignoreElement_xcode](https://user-images.githubusercontent.com/70322435/219908289-f674ccf7-4286-4bd7-80a9-3f4b652ab59d.jpg)
 
 ```swift
@@ -136,6 +137,7 @@ completed<br/>
 skip(while:)은 검사를 통과하지 못한 요소들을 방출한다. filter와 비슷하면서도 반대라고 생각하면 된다.<br/>
 
 <img width="640" alt="skipWhile c" src="https://user-images.githubusercontent.com/70322435/219908588-9f99f66f-b452-47e1-88b6-745f25d4cb7a.png">
+
 ![skipwhile_xcode](https://user-images.githubusercontent.com/70322435/219908403-a40f96f8-8e72-4c1a-a6f4-85214e652a2d.jpg)
 
 ```swift
