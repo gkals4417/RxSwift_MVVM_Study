@@ -362,4 +362,62 @@ error(Sequence contains more than one element.)<br/>
 
 ## distinctUntilChanged
 
+distinctUntilChanged는 Observable에서 방출되는 이벤트가 이전에 방출된 이벤트와 같다며 방출하지 않고 다음 이베트로 넘어가게 해주는 operator이다.<br/>
 
+![distinctUntilChanged](https://user-images.githubusercontent.com/70322435/219932635-d501100b-4b05-4380-bb35-426460ea50a6.jpg)
+
+![distinctUntilChanged_xcode](https://user-images.githubusercontent.com/70322435/219932636-7b3ba383-2e13-46f0-bd8b-1438a1934163.jpg)
+
+```swift
+let array = [1, 1, 2, 3, 1, 3, 4, 5]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observation = Obervable.from(array)
+
+    observation
+	.distinctUntilChanged()
+	.usbscribe { string in
+	    print(string)
+	}
+	.dispose()
+}
+```
+
+Observable의 from을 통해 배열의 각 요소가 이벤트로 방출이 된다.<br/>
+그러데, 1을 방출한 뒤 다음 이벤트가 이전과 같은 1이기 때문에 방출되지 않는다. 그렇기 때문에 다음 이벤트인 2가 방출이 된다.<br/>
+반면에 index값이 4인 1은 이전 이벤트가 3이었기 때문에 그대로 방출이 된다.<br/>
+따라서 결과값은<br/>
+1<br/>
+2<br/>
+3<br/>
+1<br/>
+3<br/>
+4<br/>
+5<br/>
+completed<br/>
+가 된다.<br/>
+
+## debounce
+
+debounce는 Observable에서 방출된 이벤트 다음으로 빠르게 방출될 이벤트를 무시한다.<br/>
+즉, 시간간격을 두고 시간이 끝난 시점에 가장 최근의 이벤트를 방출한다.<br/>
+"시간간격"의 기준은 debounce의 파라미터 중 하나인 dueTime을 이용해서이다.<br/>
+
+![debounce](https://user-images.githubusercontent.com/70322435/219933064-3119bd13-346c-4d9f-b9ff-e7ca3449b46c.png)
+
+![debounce_xcode](https://user-images.githubusercontent.com/70322435/219932886-139ac0fe-642a-4746-bf7a-ef2d51b6217e.jpg)
+
+## throttle
+
+throttle은 depounce와는 다르게 시간간격을 두고 이벤트가 처음 방출되면 그 기간동안 어떤 이벤트도 방출되지 않는다.<br/>
+이벤트가 방출되더라도 시간간격이 초기화되지 않는다.<br/>
+
+![throttle](https://user-images.githubusercontent.com/70322435/219933082-fa5fa5e7-af72-47cf-a316-4f7777c9b0fc.png)
+
+![throttle_xcode](https://user-images.githubusercontent.com/70322435/219933102-e7704d76-95a4-4656-8d0a-c05235d5ec3f.jpg)
+
+## debounce와 throttle
+
+debounce는 연이어서 API 호출이 될 수 있을 때, 마지막 이벤트를 기준으로 API를 호출시킬 수 있도록 해준다.<br/>
+
+throttle은 사용자가 무한정 버튼을 터치하더라도 한번만 실행되게 할 때 사용한다.
