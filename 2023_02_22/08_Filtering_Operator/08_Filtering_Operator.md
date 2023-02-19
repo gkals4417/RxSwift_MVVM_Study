@@ -8,6 +8,9 @@ IgnoreElements는 Observable의 모든 next 이벤트를 방출하지 않는다.
 다만, completed나 error와 같은 notification은 알려준다.<br/>
 completed나 error에 대한 알림반 받고 싶은 경우, IgnoreElements를 사용하면 된다.<br/>
 
+<img width="640" alt="ignoreElements c" src="https://user-images.githubusercontent.com/70322435/219908287-e3fda96e-ab94-4590-97c3-c795c7aeb9c4.png">
+![ignoreElement_xcode](https://user-images.githubusercontent.com/70322435/219908289-f674ccf7-4286-4bd7-80a9-3f4b652ab59d.jpg)
+
 ```swift
 let observation: Observable<String?> = Observable.just("Hello")
 
@@ -37,6 +40,10 @@ IgnoreElements는 next에 대한 이벤트는 방출하지 않기 때문에 Obse
 
 ElementAt은 Observable의 이벤트 중 index에 해당하는 이벤트만 방출한다.<br/>
 
+![elementAt](https://user-images.githubusercontent.com/70322435/219908317-674dc2b8-31fa-4161-b15d-5ef431d3cdca.jpg)
+![elementAt_xcode](https://user-images.githubusercontent.com/70322435/219908318-ee9283bf-fea4-49bb-b46e-0c67310fb969.jpg)
+
+
 ```swift
 let observation = Observable.range(start: 1, count: 5)
 
@@ -65,6 +72,10 @@ let observation = Observable.range(start: 1, count: 5)
 
 테스트를 통과한 이벤트만 방출하게 하는 operator이다.<br/>
 조건을 설정하고, 설정된 조건에 맞는 이벤트만 순서대로 방출된 뒤 completed로 종료된다.<br/>
+
+![filter](https://user-images.githubusercontent.com/70322435/219908358-e5d4cfb2-6814-414d-87d4-8df5e570f260.jpg)
+![filter_xcode](https://user-images.githubusercontent.com/70322435/219908360-00b9f536-69c4-4552-be19-8dcc75e0c77b.jpg)
+
 
 ```swift
 let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -96,6 +107,9 @@ completed<br/>
 
 Observable에서 방출된 이벤트들 중에서 앞의 n번째 이벤트까지 무시하고 그 다음 이벤트를 방출한다.<br/>
 
+![skip](https://user-images.githubusercontent.com/70322435/219908369-1b2fda77-d343-4875-8c90-df07ba867b5c.jpg)
+![skip_xcode](https://user-images.githubusercontent.com/70322435/219908372-abb40e9e-a47f-4091-8c3c-77c04b244de1.jpg)
+
 ```swift
 let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -120,6 +134,9 @@ completed<br/>
 ## skip(while:)
 
 skip(while:)은 검사를 통과하지 못한 요소들을 방출한다. filter와 비슷하면서도 반대라고 생각하면 된다.<br/>
+
+<img width="640" alt="skipWhile c" src="https://user-images.githubusercontent.com/70322435/219908588-9f99f66f-b452-47e1-88b6-745f25d4cb7a.png">
+![skipwhile_xcode](https://user-images.githubusercontent.com/70322435/219908403-a40f96f8-8e72-4c1a-a6f4-85214e652a2d.jpg)
 
 ```swift
 let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -151,6 +168,9 @@ let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ## skip(until:)
 
 두 개의 Observable이 있다면, 두번째 Observable이 이벤트를 방출하기 전까지 첫번째 Observable의 이벤트는 방출되지 않는다.<br/>
+
+![skipUntil](https://user-images.githubusercontent.com/70322435/219908410-f3cdf8f8-59fa-4602-8838-40af1e3cb2b4.jpg)
+![skipUntil_xcode](https://user-images.githubusercontent.com/70322435/219908416-e21091a8-6c1e-4ca7-aae1-7c2cdeeb6264.jpg)
 
 ```swift
 let array = [1, 2, 3, 4, 5]
@@ -196,9 +216,14 @@ completed<br/>
 
 skip(duration:)은 시간을 지정해서 Observable이 방출하는 이벤트를 무시할 수 있다.<br/>
 
+![skipDuration_xcode](https://user-images.githubusercontent.com/70322435/219908423-05cd41f4-e145-4461-ae54-e3fa5fbb522c.jpg)
+
 ## take
 
 skip과 반대로, Observable의 n번째 이벤트까지 방출을 하고 나머지 이벤트는 무시하고 바로 complete한다.<br/>
+
+![take](https://user-images.githubusercontent.com/70322435/219908445-48ad29c6-7ff9-43e8-9a30-01938f6e36e4.jpg)
+![take_xcode](https://user-images.githubusercontent.com/70322435/219908450-2a278673-fe4d-4639-bcaf-a43fe5aa4f17.jpg)
 
 ```swift
 let array = [1, 2, 3, 4, 5]
@@ -227,6 +252,9 @@ completed<br/>
 ## take(while:)
 
 Observable의 아이탬을 똑같이 방출한다. 하지만, 특정 조건이 참이 되면 더이상 방출하지 않고 complete된다.<br/>
+
+![takewhile_xcode](https://user-images.githubusercontent.com/70322435/219908460-e6d6cd2b-7551-43ee-b51b-0ed833c17d70.jpg)
+<img width="640" alt="takeWhile c" src="https://user-images.githubusercontent.com/70322435/219908549-457aa29f-d046-4225-a5a2-ff6d610a4177.png">
 
 ```swift
 let array = [1, 2, 3, 4, 5]
@@ -257,10 +285,16 @@ completed<br/>
 두 개의 Observable이 있을 때, 만약 두번째 Observable이 방출되거나 종료된다면 그 즉시 첫번째 Observable의 방출도 멈추고 complete된다.<br/>
 정리하면, 첫번째 Observable을 그대로 복사하는데, 두번째 Observable의 이벤트가 생기면 그 즉시 복사가 중지되는 것이다고 생각하면 된다.<br/>
 
+![takeUntil](https://user-images.githubusercontent.com/70322435/219908472-aa67a072-4254-4e18-a556-473e7d45e08e.jpg)
+![takeUntil_xcode](https://user-images.githubusercontent.com/70322435/219908474-edd9432b-6506-4e2e-9181-39713831d1ba.jpg)
+
 ## take(last:)
 
 Observable의 이벤트 중, 마지막으로부터 n번째 이벤트까지만 방출하고 complete된다.<br/>
 중요한 점은 Observable이 complete되야지만 방출이 된다는 점이다.<br/>
+
+![takeLast](https://user-images.githubusercontent.com/70322435/219908485-5a9108de-5e74-49e3-9fdd-a7f59f07a46d.jpg)
+![takeLast_xcode](https://user-images.githubusercontent.com/70322435/219908489-c0f89427-8cc3-454a-a4c0-e8201d67ef43.jpg)
 
 ```swift
 let array = [1, 2, 3, 4, 5]
@@ -283,10 +317,14 @@ let array = [1, 2, 3, 4, 5]
 
 take(for:)는 특정 시간만큼 이벤트를 방출하고, 시간이 끝나면 더이상 이벤트를 방출하지 않고 complete한다.<br/>
 
+![takeFor_xcode](https://user-images.githubusercontent.com/70322435/219908501-762b0056-5bee-4d38-b9a7-e7a74a0b291f.jpg)
+
 ## single
 
 First와 비슷한 operator이다.<br/>
 First는 Observable의 첫번째 이벤트만 방출하고 complete하지만, single은 이벤트가 하나만 있을 경우 complete하고, 이벤트가 여러개일 경우 첫버째만 방출한 뒤 에러를 내보낸다.<br/>
+
+![single_xcode](https://user-images.githubusercontent.com/70322435/219908520-f934b1b4-595b-4e03-8abf-586faf5fcfcf.jpg)
 
 ```swift
 let array = [1, 2, 3, 4, 5]
