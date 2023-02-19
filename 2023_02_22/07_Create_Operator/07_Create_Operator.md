@@ -148,7 +148,7 @@ completed<br/>
 1. initialState : 초기상태
 2. condition : 현재 상태를 확인 후, true를 리턴하면 Observable을 진행하고, false를 리턴하면 Observable을 종료시킨다.
 3. scheduler : 어떤 scheduler에서 실행시킬 것인지 정한다.
-4. iterate : 이밴트가 발생된 후 매번 실행되는 구문
+4. iterate : 이벤트가 발생된 후 매번 실행되는 구문
 
 이다.
 
@@ -334,7 +334,7 @@ completed<br/>
 disposed<br/>
 를 출력한다.<br/>
 
-당연히 방출되는 아이탬이 없기 때문에 출력되는 이밴트는 없고, 정상적으로 종료가 되기 때문에 completed / disposed가 출력된다.<br/>
+당연히 방출되는 아이탬이 없기 때문에 출력되는 이벤트는 없고, 정상적으로 종료가 되기 때문에 completed / disposed가 출력된다.<br/>
 
 ```swift
 let observation : Observable<String?> = Observable.never()
@@ -353,7 +353,7 @@ let observation : Observable<String?> = Observable.never()
 ```
 
 버튼을 터치하더라도 아무것도 출력되지 않는다.<br/>
-당연히 방출되는 아이탬이 없기 때문에 출력되는 이밴트도 없고, 종료가 되지 않기 때문에 completed 또는 disposed도 출력되지 않는다.<br/>
+당연히 방출되는 아이탬이 없기 때문에 출력되는 이벤트도 없고, 종료가 되지 않기 때문에 completed 또는 disposed도 출력되지 않는다.<br/>
 
 ```swift
 enum MyError: Error {
@@ -380,4 +380,4 @@ error<br/>
 disposed<br/>
 가 출력된다.<br/>
 <br/>
-당연히 방출되는 아이템이 없기 때문에 출력되는 이밴트가 없고, error operator는 error와 함께 종료되기 때문에 onError의 error를 출력한다.<br/>
+당연히 방출되는 아이템이 없기 때문에 출력되는 이벤트가 없고, error operator는 error와 함께 종료되기 때문에 onError의 error를 출력한다.<br/>

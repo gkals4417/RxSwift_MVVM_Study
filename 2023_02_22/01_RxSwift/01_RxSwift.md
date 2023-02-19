@@ -3,7 +3,7 @@
 ![RxSwift_Logo](https://user-images.githubusercontent.com/70322435/219868618-b4acb8d4-028f-4cfa-96e2-d59c37dee4ee.png)
 
 RxSwift가 뭐지? 어디서 많이 본 것 같은데...<br/>
-Rx는 Reactive eXtensions의 약자로 관찰 가능한 시퀀스를 사용해서 비동기 및 이밴트 기반 프로그램을 구성하기 위한 라이브러리이다.<br/>
+Rx는 Reactive eXtensions의 약자로 관찰 가능한 시퀀스를 사용해서 비동기 및 이벤트 기반 프로그램을 구성하기 위한 라이브러리이다.<br/>
 특히 MVVM 패턴을 사용할 때 View와 ViewModel을 바인딩을 해줘야 한다. 이 때 RxSwift를 이용하면 쉽게 바인딩을 할 수 있게 된다.<br/>
 
 그럼 RxSwift를 쓰는 이유는 무엇일까?<br/>
