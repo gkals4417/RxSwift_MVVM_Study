@@ -1,0 +1,325 @@
+# Filtering Operator
+
+말 그대로 필터링과 관련되어있는 operator이다.<br/>
+
+## IgnoreElements
+
+IgnoreElements는 Observable의 모든 next 이밴트를 방출하지 않는다.<br/>
+다만, completed나 error와 같은 notification은 알려준다.<br/>
+completed나 error에 대한 알림반 받고 싶은 경우, IgnoreElements를 사용하면 된다.<br/>
+
+```swift
+let observation: Observable<String?> = Observable.just("Hello")
+
+@IBAction func tapped(_ sender: UIButton) {
+    _ = observation
+	.ignoreElements()
+	.subscribe(onNext: { string in
+	    print(string)
+	}, onError: { error in
+	    print(error)
+	}, onCompleted: {
+	    print("completed")
+	}, onDisposed: {
+	    print("disposed")
+	})
+	.dispose()
+}
+```
+
+버튼을 누르면<br/>
+completed<br/>
+disposed>br/>
+를 출력한다. <br/>
+IgnoreElements는 next에 대한 이밴트는 방출하지 않기 때문에 Observable의 just operator의 "Hello"는 방출하지 않는 것을 볼 수 있다.<br/>
+
+## ElementAt
+
+ElementAt은 Observable의 이밴트 중 index에 해당하는 이밴트만 방출한다.<br/>
+
+```swift
+let observation = Observable.range(start: 1, count: 5)
+
+@IBAction func tapped(_ sender: UIButton) {
+    _ = observation
+        .elementAt(2)
+        .subscribe(onNext: { string in
+            print(string)
+        }, onError: { error in
+            print(error)
+        }, onCompleted: {
+            print("completed")
+        }, onDisposed: {
+            print("disposed")
+        })
+        .dispose()
+}
+```
+
+원래라면 1, 2, 3, 4, 5가 순서대로 출력되야 하지만, elementAt(2) 때문에 index값 2에 해당하는 3이 출력된다.<br/>
+그리고 completed와 disposed를 방출하고 종료된다.<br/>
+
+.elementAt(_ index:) 대신 .element(at: )을 사용한다.<br/>
+
+## Filter
+
+테스트를 통과한 이밴트만 방출하게 하는 operator이다.<br/>
+조건을 설정하고, 설정된 조건에 맞는 이밴트만 순서대로 방출된 뒤 completed로 종료된다.<br/>
+
+```swift
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observation = Observable.from(array)
+    observation.filter { number in
+	number > 5
+    }
+    .subscribe { int in
+	print(int)
+    }
+    .dispose()
+}
+```
+
+array라는 배열 안에 1부터 10까지 정수가 들어있다.<br/>
+from이라는 operator를 사용하면 각각의 요소들이 하나하나 이밴트로 나오게 되는데, 여기서 filter operator를 통해 5보다 큰 정수들만 방출하는 조건을 만들었다.<br/>
+그렇기 때문에 버튼을 누르면 결과는<br/>
+6<br/>
+7<br/>
+8<br/>
+9<br/>
+10<br/>
+completed<br/>
+가 출력된다.<br/>
+
+## Skip
+
+Observable에서 방출된 이밴트들 중에서 앞의 n번째 이밴트까지 무시하고 그 다음 이밴트를 방출한다.<br/>
+
+```swift
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observation = Observable.from(array)
+    observation.skip(8)
+    .subscribe { int in
+	print(int)
+    }
+    .dispose()
+}
+```
+
+위 코드에서 8번째 요소까지 무시하고 남은 이밴트인 9와 10을 방출한다.<br/>
+따라서 결과적으로<br/>
+9<br/>
+10<br/>
+completed<br/>
+가 출력된다.<br/>
+
+
+## skip(while:)
+
+skip(while:)은 검사를 통과하지 못한 요소들을 방출한다. filter와 비슷하면서도 반대라고 생각하면 된다.<br/>
+
+```swift
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observation = Observable.from(array)
+    observation.skip(while: { number in
+	number < 5
+    })
+    .subscribe(onNext: { int in
+	print(int)
+    })
+    .dispose()
+}
+```
+
+위 코드는, 1부터 10까지 들어있는 배열의 요소들을 하나씩 추출해서 이밴트로 방출을 하는데, skip(while:)에 의해 걸러지게 된다.<br/>
+요소의 크기가 5보다 작으면 (true) 방출하지 않고, 5 이상인 경우(false) 방출을 하게 된다.<br/>
+결과적으로 <br/>
+5<br/>
+6<br/>
+7<br/>
+8<br/>
+9<br/>
+10<br/>
+이 된다.<br/>
+
+
+## skip(until:)
+
+두 개의 Observable이 있다면, 두번째 Observable이 이밴트를 방출하기 전까지 첫번째 Observable의 이밴트는 방출되지 않는다.<br/>
+
+```swift
+let array = [1, 2, 3, 4, 5]
+let array2 = [11, 12, 13, 14, 15]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observationOne = Observable.from(array)
+    let observationTwo = Observable.from(array2)
+
+    observationOne.skip(until: observationTwo)
+    .subscribe { int in
+	print(int)
+    }
+    .dispose()
+
+    observationTwo.subscribe { int in
+	print(int)
+    }
+    .dispose()
+}
+```
+
+위 코드는, array와 array2 배열 두개가 있고 각각 observationOne, observationTwo로 Observable을 만들었다.<br/>
+그리고 observationOne을 구독했는데 이때, observationTwo를 두번째 Observable로 설정했다.<br/>
+버튼을 누르면 처음에는 observationTwo가 이밴트를 방출하지 않기 때문에 observationOne에 있는 1은 방출하지 않는다.<br/>
+이후 observationTwo가 이밴트를 방출하기 때문에 observationOne의 나머지 요소들도 방출되기 시작한다.<br/>
+결과적으로<br/>
+2<br/>
+3<br/>
+4<br/>
+5<br/>
+completed<br/>
+11<br/>
+12<br/>
+13<br/>
+14<br/>
+15<br/>
+completed<br/>
+가 나오게 된다.<br/>
+
+
+## skip(duration:)
+
+skip(duration:)은 시간을 지정해서 Observable이 방출하는 이밴트를 무시할 수 있다.<br/>
+
+## take
+
+skip과 반대로, Observable의 n번째 이밴트까지 방출을 하고 나머지 이밴트는 무시하고 바로 complete한다.<br/>
+
+```swift
+let array = [1, 2, 3, 4, 5]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observation = Observable.from(array)
+
+    observation
+	.take(3)
+	.subscribe { int in
+	    print(int)
+	}
+	.dispose()
+}
+```
+
+위의 코드에서 from operator때문에 Observable은 총 5개의 이밴트를 방출해야 한다.<br/>
+하지만, take(3)으로 인해 총 3개의 이밴트를 방출하게 된다.<br/>
+결과적으로<br/>
+1<br/>
+2<br/>
+3<br/>
+completed<br/>
+가 방출되다.<br/>
+
+## take(while:)
+
+Observable의 아이탬을 똑같이 방출한다. 하지만, 특정 조건이 참이 되면 더이상 방출하지 않고 complete된다.<br/>
+
+```swift
+let array = [1, 2, 3, 4, 5]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observation = Observable.from(array)
+
+    observation
+        .take(while: { number in
+	    number < 3
+	})
+        .subscribe { int in
+            print(int)
+        }
+        .dispose()
+}
+```
+
+동일하게 from으로 인해 배열의 각 요소들이 이밴트로 방출이 되는데, takeWhile에서 이밴트가 3보다 작을 때까지만 방출이 된다.<br/>
+결국 결과적으로<br/>
+1<br/>
+2<br/>
+completed<br/>
+이 출력된다.<br/>
+
+## take(until:)
+
+두 개의 Observable이 있을 때, 만약 두번째 Observable이 방출되거나 종료된다면 그 즉시 첫번째 Observable의 방출도 멈추고 complete된다.<br/>
+정리하면, 첫번째 Observable을 그대로 복사하는데, 두번째 Observable의 이밴트가 생기면 그 즉시 복사가 중지되는 것이다고 생각하면 된다.<br/>
+
+## take(last:)
+
+Observable의 이밴트 중, 마지막으로부터 n번째 이밴트까지만 방출하고 complete된다.<br/>
+중요한 점은 Observable이 complete되야지만 방출이 된다는 점이다.<br/>
+
+```swift
+let array = [1, 2, 3, 4, 5]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observation = Observable.from(array)
+
+    observation
+	.takeLast(3)
+	.subscribe { int in
+	    print(int)
+	}
+	.dispose()
+}
+```
+
+결과적으로 총 5개의 이밴트 중, takeLast(3)에 해당하는 3, 4, 5만 방출된다. <br/>
+
+## take(for:)
+
+take(for:)는 특정 시간만큼 이밴트를 방출하고, 시간이 끝나면 더이상 이밴트를 방출하지 않고 complete한다.<br/>
+
+## single
+
+First와 비슷한 operator이다.<br/>
+First는 Observable의 첫번째 이밴트만 방출하고 complete하지만, single은 이밴트가 하나만 있을 경우 complete하고, 이밴트가 여러개일 경우 첫버째만 방출한 뒤 에러를 내보낸다.<br/>
+
+```swift
+let array = [1, 2, 3, 4, 5]
+
+@IBAction func tapped(_ sender: UIButton) {
+    let observationOne = Observable.just(1)
+    let observationTwo = Observable.from(array)
+
+    observationOne
+	.single()
+	.subscribe { int in
+	    print(int)
+	}
+	.dispose
+
+    observationTwo
+	.single()
+	.subscribe { int in
+	    print(int)
+	}
+	.dispose()
+}
+```
+
+observationOne은 이밴트가 1 하나이지만, observationTwo는 이밴트가 1, 2, 3, 4, 5 총 다섯개이다.<br/>
+그렇기 때문에 observationOne은<br/>
+1<br/>
+completed<br/>
+이지만, observationTwo는<br/>
+1<br/>
+error(Sequence contains more than one element.)<br/>
+로 에러가 나오게 된다.<br/>
+
+## distinctUntilChanged
+
+
