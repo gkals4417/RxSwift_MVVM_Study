@@ -120,11 +120,66 @@ Observable에 방출된 이벤트를 Observable로 변환한 다음, 그 방출�
 
 ## flatMapFirst
 
+flatMap은 새롭게 생성한 Observable도 함께 방출한다.<br/>
+하지만, flaMapFirst는 이전에 생성한 Observable의 이벤트가 다 끝나기 전까지 새롭게 생성한 Observable은 무시한다.
 
+![flatMapFirst_xcode](https://user-images.githubusercontent.com/70322435/220550325-f7f8c99c-939e-4e6e-a853-84ec1e629695.jpg)
+
+```swift
+@IBAction func tapped(_ sender: UIButton) {
+    let observationOne = Observable.of(1, 2, 3)
+    let observationTwo = Observable.of("A", "B", "C")
+
+    observationOne
+        .flatMapFirst({ number -> Observable<String> in
+            print(number)
+            return observationTwo
+        })
+        .subscribe(onNext: { string in
+            print(string)
+        })
+        .dispose()
+}
+```
+
+위 코드를 실행하면 observationOne의 1과 observationTwo의 이벤트를 방출하고 끝이난다.<br/>
+observationOne에서 이벤트 1을 방출하고 다음 이벤트인 2와 3을 방출해야 하지만 무시되기 때문이다.<br/>
 
 ## flatMapLatest
 
+flatMapLatest는 Observable이 이벤트를 방출하는 동안 다음 이벤트가 발생하면 기존 Observable을 dispose시키고 다음 이벤트의 Observable을 실행한다.<br/>
 
+![flatMapLatest](https://user-images.githubusercontent.com/70322435/220550431-092d21c1-d251-4471-a7b4-f93fb3303db5.jpg)
+
+```swift
+@IBAction func tapped(_ sender: UIButton) {
+    let observationOne = Observable.of(1, 2, 3)
+    let observationTwo = Observable.of("A", "B", "C")
+
+    observationOne
+        .flatMapLatest({ number -> Observable<String> in
+            print(number)
+            return observationTwo
+        })
+        .subscribe(onNext: { string in
+            print(string)
+        })
+        .dispose()
+}
+```
+
+위 코드는 observationOne의 1 이벤트가 방출되고 observationTwo의 A 이벤트가 방출된다.<br/>
+그런데 observationTwo의 B 이벤트가 방출되기 전, observationOne의 2 이벤트가 방출되기 때문에 observationTwo는 dispose된다.<br/>
+따라서 결과적으로 <br/>
+1<br/>
+A<br/>
+2<br/>
+A<br/>
+3<br/>
+A<br/>
+B<br/>
+C<br/>
+가 출력된다.<br/>
 
 ## concatMap
 
