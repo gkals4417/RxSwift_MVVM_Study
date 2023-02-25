@@ -136,16 +136,101 @@ Star 이벤트가 생기면 가장 최근 이벤트인 Blue와 합쳐지게 된�
 결과적으로<br/>
 ("Black", "Circle")<br/>
 ("Blue", "Circle")<br/>
-(Blue", "Star")<br/>
+("Blue", "Star")<br/>
 가 된다.<br/>
 
 ## zip
 
+combineLatest와 비슷하게, 두 Observable의 이벤트를 하나로 합쳐서 방출해준다. <br/>
+하지만 zip은 순서대로 짝을 지어 방출하게 되고, 짝이 없는 나머지의 경우 방출되지 않고 작업이 끝나게 된다.<br/>
+
+![zip](https://user-images.githubusercontent.com/70322435/221340898-a9a833a7-bf36-4361-80dd-1a5e78294a5e.jpg)
+
+![2023-02-25_14-45-45](https://user-images.githubusercontent.com/70322435/221340900-0ad1363a-267a-4e87-8bd9-7a73474478b2.jpg)
+
+```swift
+@IBAction func tapped(_ sender: UIButton) {
+    let observationOne = Observable.of(1, 2, 3)
+    let observationTwo = Observable.of("A", "B", "C", "D")
+
+    Observable
+	.zip(observationOne, observationTwo)
+	.subscribe { print($0) }
+	.dispose()
+}
+```
+
+위 코드를 해석하면, observationOne과 observationTwo의 이벤트들이 하나씩 짝을 지어 방출된다.<br/>
+하지만, observationTwo의 "D"는 짝이 없기 때문에 방출되지 않고 작업이 끝난다.<br/>
+결과적으로<br/>
+(1, "A")<br/>
+(2, "B")<br/>
+(3, "C")<br/>
+completed<br/>
+이 출력된다.<br/>
+
+
 ## withLatestFrom
+
+combineLatest와 비슷하지만, 첫번째 Observable의 이벤트가 없다면 방출하지 않고 다음으로 넘어가게 된다는 차이점이 있다.<br/>
+
+![withLatestFrom_xcode](https://user-images.githubusercontent.com/70322435/221341346-81775b0b-3e85-449f-ba0b-0814a0309804.jpg)
 
 ## sample
 
+withLatestFrom과 비슷하지만 같은 데이터를 연속해서 방출하지 않는다는 차이점이 있다.<br/>
+완료시 마지막 남은 데이터를 방출하지 않고 completed된다.<br/>
+
+![sample](https://user-images.githubusercontent.com/70322435/221341751-125ffc71-dd41-45f1-ba51-81cb35c678ff.jpg)
+
+![sample_xcode](https://user-images.githubusercontent.com/70322435/221341753-397e5e28-8f42-489c-a01b-b69940b6a746.jpg)
+
+
+```swift
+@IBAction func tapped(_ sender: UIButton) {
+    let color = PublishSubject<String>()
+    let shape = PublishSubject<String>()
+
+    color
+	.sample(shape)
+	.subscribe { print($0) }
+    color.onNext("Red")
+    color.onNext("Star")
+}
+```
+
+
 ## switchLatest
 
+Observable들을 하나의 Observable로 변경시켜준다. 단, 가장 최근의 아이템들이 방출된다.<br/>
+
+<img width="640" alt="switch c" src="https://user-images.githubusercontent.com/70322435/221342097-4c2fa637-d5a4-415a-b15a-585fad4c7aab.png">
+
+![switchLatest_xcode](https://user-images.githubusercontent.com/70322435/221342099-0c3f3b9e-bd4d-4cad-bd0b-6ada4c7a529e.jpg)
+
+
 ## reduce
+
+Observable의 각 아이템에 순차적으로 특정 function을 적용하고 최종값을 방출한다.<br/>
+scan과는 다르게 최종값만 방출한다<br/>
+
+![reduce](https://user-images.githubusercontent.com/70322435/221342257-abaa74e3-3287-4ee0-aa79-07d1d2a68569.jpg)
+
+![reduce_xcode](https://user-images.githubusercontent.com/70322435/221342258-8487475e-18c6-4933-8103-cfd3c9889249.jpg)
+
+```swift
+@IBAction func tapped(_ sender: UIButton) {
+    let observation = Observable.of(1, 2, 3, 4, 5)
+
+    observation
+	.reduce(0, accumulator: +)
+	.subscribe { print($0) }
+	.dispose()
+}
+```
+
+0을 시작으로 1, 2, 3, 4, 5를 순차적으로 더한 최종값이 방출되기 때문에 결과적으로, <br/>
+15<br/>
+completed<br/>
+가 출력된다.<br/>
 
