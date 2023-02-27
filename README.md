@@ -36,5 +36,6 @@ RxSwift에 대한 기본적인 내용들을 정리하고 활용하기 위해 모
 |10|Combining Operator|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/blob/main/2023_03_01/10_Combining_Operator/10_Combining_Operator.md)|
 |11|Conditional Operator|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/blob/main/2023_03_01/11_Conditional_Operator/11_Conditional_Operator.md)|
 |12|Time-Based Operator|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/blob/main/2023_03_01/12_Time-Based_Operator/12_Time-Based_Operator.md)|
+|13|Sharing Subscription|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/blob/main/2023_03_01/13_Sharing_Subscription/13_Sharing_Subscription.md)|
 <br/>
 계속 업데이트중...<br/>
