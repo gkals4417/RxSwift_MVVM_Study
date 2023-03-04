@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		4D66C64A29B03EE000CFFB06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D66C64929B03EE000CFFB06 /* AppDelegate.swift */; };
 		4D66C64C29B03EE000CFFB06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D66C64B29B03EE000CFFB06 /* SceneDelegate.swift */; };
-		4D66C64E29B03EE000CFFB06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D66C64D29B03EE000CFFB06 /* ViewController.swift */; };
-		4D66C65129B03EE000CFFB06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D66C64F29B03EE000CFFB06 /* Main.storyboard */; };
+		4D66C64E29B03EE000CFFB06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D66C64D29B03EE000CFFB06 /* HomeViewController.swift */; };
 		4D66C65429B03EE000CFFB06 /* JipJung_Clone_Pulsar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D66C65229B03EE000CFFB06 /* JipJung_Clone_Pulsar.xcdatamodeld */; };
 		4D66C65629B03EE000CFFB06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D66C65529B03EE000CFFB06 /* Assets.xcassets */; };
 		4D66C65929B03EE000CFFB06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D66C65729B03EE000CFFB06 /* LaunchScreen.storyboard */; };
+		4D9F534C29B328DF00719D1A /* TapBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F534B29B328DF00719D1A /* TapBarViewController.swift */; };
+		4D9F534E29B32B5400719D1A /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F534D29B32B5400719D1A /* ExploreViewController.swift */; };
+		4D9F535029B32C2700719D1A /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F534F29B32C2700719D1A /* MeViewController.swift */; };
 		831B2FA53DAB768D5561D711 /* Pods_JipJung_Clone_Pulsar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 381A2062CE075B93E4206655 /* Pods_JipJung_Clone_Pulsar.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,12 +25,14 @@
 		4D66C64629B03EDF00CFFB06 /* JipJung_Clone_Pulsar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JipJung_Clone_Pulsar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D66C64929B03EE000CFFB06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D66C64B29B03EE000CFFB06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4D66C64D29B03EE000CFFB06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4D66C65029B03EE000CFFB06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4D66C64D29B03EE000CFFB06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4D66C65329B03EE000CFFB06 /* JipJung_Clone_Pulsar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JipJung_Clone_Pulsar.xcdatamodel; sourceTree = "<group>"; };
 		4D66C65529B03EE000CFFB06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D66C65829B03EE000CFFB06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D66C65A29B03EE000CFFB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D9F534B29B328DF00719D1A /* TapBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarViewController.swift; sourceTree = "<group>"; };
+		4D9F534D29B32B5400719D1A /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		4D9F534F29B32C2700719D1A /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		F853EFBE49236668ED4EBA96 /* Pods-JipJung_Clone_Pulsar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JipJung_Clone_Pulsar.release.xcconfig"; path = "Target Support Files/Pods-JipJung_Clone_Pulsar/Pods-JipJung_Clone_Pulsar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,7 +54,6 @@
 				3A3F117A7E28BE7F69C9BAA8 /* Pods-JipJung_Clone_Pulsar.debug.xcconfig */,
 				F853EFBE49236668ED4EBA96 /* Pods-JipJung_Clone_Pulsar.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -60,6 +63,30 @@
 				381A2062CE075B93E4206655 /* Pods_JipJung_Clone_Pulsar.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D1D77BD29B0A8C000A46299 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4D66C64D29B03EE000CFFB06 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4D1D77BE29B0A8C700A46299 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				4D9F534D29B32B5400719D1A /* ExploreViewController.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		4D1D77BF29B0A8D700A46299 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				4D9F534F29B32C2700719D1A /* MeViewController.swift */,
+			);
+			path = Me;
 			sourceTree = "<group>";
 		};
 		4D66C63D29B03EDF00CFFB06 = {
@@ -83,16 +110,26 @@
 		4D66C64829B03EDF00CFFB06 /* JipJung_Clone_Pulsar */ = {
 			isa = PBXGroup;
 			children = (
+				4D9F535129B32CA700719D1A /* UI */,
 				4D66C64929B03EE000CFFB06 /* AppDelegate.swift */,
 				4D66C64B29B03EE000CFFB06 /* SceneDelegate.swift */,
-				4D66C64D29B03EE000CFFB06 /* ViewController.swift */,
-				4D66C64F29B03EE000CFFB06 /* Main.storyboard */,
 				4D66C65529B03EE000CFFB06 /* Assets.xcassets */,
 				4D66C65729B03EE000CFFB06 /* LaunchScreen.storyboard */,
 				4D66C65A29B03EE000CFFB06 /* Info.plist */,
 				4D66C65229B03EE000CFFB06 /* JipJung_Clone_Pulsar.xcdatamodeld */,
 			);
 			path = JipJung_Clone_Pulsar;
+			sourceTree = "<group>";
+		};
+		4D9F535129B32CA700719D1A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4D1D77BF29B0A8D700A46299 /* Me */,
+				4D1D77BE29B0A8C700A46299 /* Explore */,
+				4D1D77BD29B0A8C000A46299 /* Home */,
+				4D9F534B29B328DF00719D1A /* TapBarViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,7 +194,6 @@
 			files = (
 				4D66C65929B03EE000CFFB06 /* LaunchScreen.storyboard in Resources */,
 				4D66C65629B03EE000CFFB06 /* Assets.xcassets in Resources */,
-				4D66C65129B03EE000CFFB06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,24 +246,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D66C64E29B03EE000CFFB06 /* ViewController.swift in Sources */,
+				4D66C64E29B03EE000CFFB06 /* HomeViewController.swift in Sources */,
+				4D9F535029B32C2700719D1A /* MeViewController.swift in Sources */,
 				4D66C64A29B03EE000CFFB06 /* AppDelegate.swift in Sources */,
+				4D9F534E29B32B5400719D1A /* ExploreViewController.swift in Sources */,
 				4D66C65429B03EE000CFFB06 /* JipJung_Clone_Pulsar.xcdatamodeld in Sources */,
 				4D66C64C29B03EE000CFFB06 /* SceneDelegate.swift in Sources */,
+				4D9F534C29B328DF00719D1A /* TapBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4D66C64F29B03EE000CFFB06 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D66C65029B03EE000CFFB06 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4D66C65729B03EE000CFFB06 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +397,6 @@
 				INFOPLIST_FILE = JipJung_Clone_Pulsar/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -399,7 +429,6 @@
 				INFOPLIST_FILE = JipJung_Clone_Pulsar/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
