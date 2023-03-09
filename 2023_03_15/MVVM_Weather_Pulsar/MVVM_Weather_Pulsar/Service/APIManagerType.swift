@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+enum NetworkError: Error {
+    case networkError
+    case fetchError
+    case parsingError
+}
+
+protocol APIManagerType {
+    
+    typealias networkCompletion = (Result<Any, NetworkError>) -> Void
+    func fetchData(city: String, apiType: String, completion: @escaping networkCompletion)
+    func getData(urlString: String, apiType: String, completion: @escaping networkCompletion)
+//    func kakaoLogin(loginRequest: UserOAuthLoginRequest, onSuccess:@escaping(UserLoginResponse) -> Void, onFailure:@escaping(String) -> Void)
+//    func updateNickName(nickName: NickNameDto, onSuccess:@escaping() -> Void, onFailure:@escaping(String) -> Void)
+}
