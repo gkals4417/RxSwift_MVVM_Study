@@ -40,4 +40,11 @@ RxSwift에 대한 기본적인 내용들을 정리하고 활용하기 위해 모
 |14|Scheduler|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/blob/main/2023_03_01/14_Scheduler/14_Scheduler.md)|
 |15|Error Handling|[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/blob/main/2023_03_01/15_Error_Handling/15_Error_Handling.md)|
 <br/>
+
+## 2023_03_08
+[링크](https://github.com/gkals4417/RxSwift_MVVM_Study/blob/main/2023_03_08/README.md)
+
+난이도를 낮춰서 목표 변경<br/>
+주제를 정해서 각자 앱을 만들어보기로<br/>
+
 계속 업데이트중...<br/>
