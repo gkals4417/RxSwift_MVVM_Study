@@ -52,15 +52,15 @@ struct APIManager: APIManagerType {
             
             if apiType == "Current" {
                 if let myData = self.parseCurrentJSON(safeData) {
-                    print("Success parse")
+                    print("Current Success parse")
                     completion(.success(myData))
                 } else {
                     print("Failed parse Current")
                     completion(.failure(.parsingError))
                 }
-            } else {
+            } else if apiType == "ForeCast" {
                 if let myData = self.parseForeCastJSON(safeData) {
-                    print("Success parse")
+                    print("ForeCast Success parse")
                     completion(.success(myData))
                 } else {
                     print("Failed parse ForeCast")
@@ -74,7 +74,6 @@ struct APIManager: APIManagerType {
     private func parseCurrentJSON(_ data: Data) -> CurrentWelcome? {
         do {
             let myData = try JSONDecoder().decode(CurrentWelcome.self, from: data)
-            print(myData)
             return myData
         } catch {
             print(error.localizedDescription)
@@ -85,7 +84,6 @@ struct APIManager: APIManagerType {
     private func parseForeCastJSON(_ data: Data) -> [ForeCastList]? {
         do {
             let myData = try JSONDecoder().decode(ForeCastWelcome.self, from: data)
-            print(myData.list)
             return myData.list
         } catch {
             print(error.localizedDescription)

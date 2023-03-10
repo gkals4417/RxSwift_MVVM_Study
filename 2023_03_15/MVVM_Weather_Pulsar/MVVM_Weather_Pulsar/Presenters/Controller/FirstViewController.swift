@@ -8,31 +8,28 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-
-//    private let apiManager = APIManager()
     
-    var currentData: CurrentWelcome?
-    
+    let myView = HomeView()
     let viewModel = WeatherViewModel(city: "Seoul")
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        DispatchQueue.global().async {
-            print(self.viewModel.currentWeatherData)
-            print(self.viewModel.foreCastWeatherData)
-        }
         
-//        apiManager.fetchData(city: "Seoul", apiType: "Current") { result in
-//            switch result {
-//            case .success(let data):
-//                self.currentData = data as? CurrentWelcome
-//                print(self.currentData)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        view.backgroundColor = .lightGray
+        viewModel.configure(myView)
+        
+        
+        self.view.addSubview(myView)
+        
+        myView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            myView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
+            myView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
+            myView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+            myView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
+        ])
     }
     
     
