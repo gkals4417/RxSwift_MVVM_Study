@@ -13,32 +13,32 @@ import Foundation
 
 // MARK: - Welcome
 struct CurrentWelcome: Codable {
-    let coord: Coord
-    let weather: [Weather]
+    let coord: CurrentCoord
+    let weather: [CurrentWeather]
     let base: String
-    let main: Main
+    let main: CurrentMain
     let visibility: Int
-    let wind: Wind
-    let clouds: Clouds
+    let wind: CurrentWind
+    let clouds: CurrentClouds
     let dt: Int
-    let sys: Sys
+    let sys: CurrentSys
     let timezone, id: Int
     let name: String
     let cod: Int
 }
 
 // MARK: - Clouds
-struct Clouds: Codable {
+struct CurrentClouds: Codable {
     let all: Int
 }
 
 // MARK: - Coord
-struct Coord: Codable {
+struct CurrentCoord: Codable {
     let lon, lat: Double
 }
 
 // MARK: - Main
-struct Main: Codable {
+struct CurrentMain: Codable {
     let temp, feelsLike, tempMin, tempMax: Double
     let pressure, humidity: Int
 
@@ -52,21 +52,22 @@ struct Main: Codable {
 }
 
 // MARK: - Sys
-struct Sys: Codable {
+struct CurrentSys: Codable {
     let type, id: Int
     let country: String
     let sunrise, sunset: Int
 }
 
 // MARK: - Weather
-struct Weather: Codable {
+struct CurrentWeather: Codable {
     let id: Int
     let main, description, icon: String
 }
 
 // MARK: - Wind
-struct Wind: Codable {
+struct CurrentWind: Codable {
     let speed: Double
     let deg: Int
 }
+
 

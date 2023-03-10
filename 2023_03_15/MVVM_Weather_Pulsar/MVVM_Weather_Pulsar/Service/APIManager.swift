@@ -9,6 +9,8 @@ import UIKit
 
 struct APIManager: APIManagerType {
     
+    static let shared = APIManager()
+    
     func fetchData(city: String, apiType: String, completion: @escaping networkCompletion) {
         var urlString = ""
         
@@ -72,6 +74,7 @@ struct APIManager: APIManagerType {
     private func parseCurrentJSON(_ data: Data) -> CurrentWelcome? {
         do {
             let myData = try JSONDecoder().decode(CurrentWelcome.self, from: data)
+            print(myData)
             return myData
         } catch {
             print(error.localizedDescription)
@@ -82,6 +85,7 @@ struct APIManager: APIManagerType {
     private func parseForeCastJSON(_ data: Data) -> [ForeCastList]? {
         do {
             let myData = try JSONDecoder().decode(ForeCastWelcome.self, from: data)
+            print(myData.list)
             return myData.list
         } catch {
             print(error.localizedDescription)

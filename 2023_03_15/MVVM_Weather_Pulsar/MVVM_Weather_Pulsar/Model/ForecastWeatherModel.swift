@@ -22,7 +22,7 @@ struct ForeCastWelcome: Codable {
 struct ForeCastCity: Codable {
     let id: Int
     let name: String
-    let coord: Coord
+    let coord: ForeCastCoord
     let country: String
     let population, timezone, sunrise, sunset: Int
 }
@@ -36,12 +36,12 @@ struct ForeCastCoord: Codable {
 struct ForeCastList: Codable {
     let dt: Int
     let main: ForeCastMainClass
-    let weather: [Weather]
-    let clouds: Clouds
-    let wind: Wind
+    let weather: [ForeCastWeather]
+    let clouds: ForeCastClouds
+    let wind: ForeCastWind
     let visibility: Int
     let pop: Double
-    let sys: Sys
+    let sys: ForeCastSys
     let dtTxt: String
     let rain, snow: ForeCastRain?
 

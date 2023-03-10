@@ -19,6 +19,7 @@
 		4D6192EC29B96E8600B7708A /* ForecastWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6192EB29B96E8600B7708A /* ForecastWeatherModel.swift */; };
 		4D6192EE29B99FD700B7708A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6192ED29B99FD700B7708A /* FirstViewController.swift */; };
 		4D6192F029B9A08000B7708A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6192EF29B9A08000B7708A /* SecondViewController.swift */; };
+		4D6192F329BAB5D600B7708A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6192F229BAB5D600B7708A /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		4D6192EB29B96E8600B7708A /* ForecastWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherModel.swift; sourceTree = "<group>"; };
 		4D6192ED29B99FD700B7708A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		4D6192EF29B9A08000B7708A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		4D6192F229BAB5D600B7708A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		75CEB106BA7C13304CBC969A /* Pods-MVVM_Weather_Pulsar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_Weather_Pulsar.debug.xcconfig"; path = "Target Support Files/Pods-MVVM_Weather_Pulsar/Pods-MVVM_Weather_Pulsar.debug.xcconfig"; sourceTree = "<group>"; };
 		8D73150A1D9B30A84759DF6D /* Pods-MVVM_Weather_Pulsar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_Weather_Pulsar.release.xcconfig"; path = "Target Support Files/Pods-MVVM_Weather_Pulsar/Pods-MVVM_Weather_Pulsar.release.xcconfig"; sourceTree = "<group>"; };
 		BA634192DCA9614B32FCAEFB /* Pods_MVVM_Weather_Pulsar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_Weather_Pulsar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 		4D6192E529B95FFC00B7708A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4D6192F229BAB5D600B7708A /* WeatherViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6192C729B95F9000B7708A /* AppDelegate.swift in Sources */,
+				4D6192F329BAB5D600B7708A /* WeatherViewModel.swift in Sources */,
 				4D6192E129B95FDD00B7708A /* APIManager.swift in Sources */,
 				4D6192F029B9A08000B7708A /* SecondViewController.swift in Sources */,
 				4D6192EE29B99FD700B7708A /* FirstViewController.swift in Sources */,
