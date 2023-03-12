@@ -19,7 +19,7 @@ final class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         myCollectionView.collectionView.delegate = self
         myCollectionView.collectionView.dataSource = self
         self.view.addSubview(myCollectionView)
@@ -48,24 +48,24 @@ extension FirstViewController: UICollectionViewDelegate, UICollectionViewDataSou
         case 0 :
             self.viewModelRx.currentWeatherDataRx.subscribe { result in
                 DispatchQueue.main.async {
-                    cell.cityLabel.text = result.name
-                    cell.degreeLabel.text = "\(result.main.temp) 도"
-                    cell.humidityLabel.text = "\(result.main.humidity) %"
+                    cell.cityLabel.text = "\(result.name) 의 현재 날씨"
+                    cell.degreeLabel.text = "기온 : \(result.main.temp) 도"
+                    cell.humidityLabel.text = "습도 : \(result.main.humidity) %"
                 }
             } onError: { error in
                 print(error)
             } onCompleted: {
-                print("SecondVC onCompleted")
+                print("FirstVC onCompleted")
             } onDisposed: {
-                print("SecondVC onDisposed")
+                print("FirstVC onDisposed")
             }
             .disposed(by: disposeBag)
         case 1 :
             self.viewModelRx.foreCastWeatherDataRx.subscribe { result in
                 DispatchQueue.main.async {
-                    cell.cityLabel.text = result[7].dtTxt
-                    cell.degreeLabel.text = "\(result[7].main.temp) 도"
-                    cell.humidityLabel.text = "\(result[7].main.humidity) %"
+                    cell.cityLabel.text = "\(result[6].dtTxt) 의 예보"
+                    cell.degreeLabel.text = "기온 : \(result[6].main.temp) 도"
+                    cell.humidityLabel.text = "습도 : \(result[6].main.humidity) %"
                 }
             } onError: { error in
                 print(error)
@@ -74,12 +74,13 @@ extension FirstViewController: UICollectionViewDelegate, UICollectionViewDataSou
             } onDisposed: {
                 print("FirstVC onDisposed")
             }
+            .disposed(by: disposeBag)
         case 2 :
             self.viewModelRx.foreCastWeatherDataRx.subscribe { result in
                 DispatchQueue.main.async {
-                    cell.cityLabel.text = result[15].dtTxt
-                    cell.degreeLabel.text = "\(result[15].main.temp) 도"
-                    cell.humidityLabel.text = "\(result[15].main.humidity) %"
+                    cell.cityLabel.text = "\(result[14].dtTxt) 의 예보"
+                    cell.degreeLabel.text = "기온 : \(result[14].main.temp) 도"
+                    cell.humidityLabel.text = "습도 : \(result[14].main.humidity) %"
                 }
             } onError: { error in
                 print(error)
@@ -88,6 +89,7 @@ extension FirstViewController: UICollectionViewDelegate, UICollectionViewDataSou
             } onDisposed: {
                 print("FirstVC onDisposed")
             }
+            .disposed(by: disposeBag)
         default:
             break
         }

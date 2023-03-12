@@ -16,7 +16,6 @@ class HomeViewRx: UIView {
         layout.minimumInteritemSpacing = .zero
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .lightGray
         cv.isPagingEnabled = true
         cv.register(HomeVIewCell.self, forCellWithReuseIdentifier: "HomeViewCell")
         cv.translatesAutoresizingMaskIntoConstraints = false

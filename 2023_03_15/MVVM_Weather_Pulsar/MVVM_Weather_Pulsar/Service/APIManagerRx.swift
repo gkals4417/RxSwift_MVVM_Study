@@ -37,7 +37,7 @@ struct APIManagerRx: APIManagerTypeRx {
         let request = URLRequest(url: url)
         
         return URLSession.shared.rx.data(request: request)
-            .retry(3)
+//            .retry(3)
             .map{try JSONDecoder().decode(CurrentWelcome.self, from: $0)}
             .asObservable()
     }
@@ -54,7 +54,7 @@ struct APIManagerRx: APIManagerTypeRx {
         let request = URLRequest(url: url)
         
         return URLSession.shared.rx.data(request: request)
-            .retry(3)
+//            .retry(3)
             .map{ try JSONDecoder().decode(ForeCastWelcome.self, from: $0).list}
             .asObservable()
     }
