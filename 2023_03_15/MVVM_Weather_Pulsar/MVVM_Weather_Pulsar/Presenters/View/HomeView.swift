@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 class HomeView: UIView {
     let cityLabel: UILabel = {
         let label = UILabel()

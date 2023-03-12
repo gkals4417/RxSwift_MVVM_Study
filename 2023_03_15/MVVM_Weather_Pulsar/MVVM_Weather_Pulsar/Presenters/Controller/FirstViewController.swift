@@ -6,22 +6,39 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class FirstViewController: UIViewController {
     
     let myView = HomeView()
     let viewModel = WeatherViewModel(city: "Seoul")
-
+    let viewModelRx = WeatherViewModelRx(cityRx: "Seoul")
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .lightGray
-        viewModel.configure(myView)
-        
-        
+
+        viewModelRx.currentWeatherDataRx.subscribe { result in
+            DispatchQueue.main.async {
+                self.myView.cityLabel.text = result.name
+                self.myView.degreeLabel.text = "\(result.main.temp)"
+                self.myView.humidityLabel.text = "\(result.main.humidity)"
+            }
+            
+        } onError: { error in
+            print(error)
+        } onCompleted: {
+            
+        } onDisposed: {
+            
+        }
+        .disposed(by: disposeBag)
+
         self.view.addSubview(myView)
-        
+
         myView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -31,7 +48,6 @@ class FirstViewController: UIViewController {
             myView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
         ])
     }
-    
-    
+
 
 }

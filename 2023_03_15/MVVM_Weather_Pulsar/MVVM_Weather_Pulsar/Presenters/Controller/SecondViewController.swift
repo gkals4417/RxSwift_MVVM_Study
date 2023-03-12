@@ -6,18 +6,36 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class SecondViewController: UIViewController {
 
     
     let myView = HomeView()
     let viewModel = WeatherViewModel(city: "Paris")
+    let viewModelRx = WeatherViewModelRx(cityRx: "Paris")
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .gray
-        viewModel.configure(myView)
+        viewModelRx.currentWeatherDataRx.subscribe { result in
+            DispatchQueue.main.async {
+                self.myView.cityLabel.text = result.name
+                self.myView.degreeLabel.text = "\(result.main.temp)"
+                self.myView.humidityLabel.text = "\(result.main.humidity)"
+            }
+            
+        } onError: { error in
+            print(error)
+        } onCompleted: {
+            
+        } onDisposed: {
+            
+        }
+        .disposed(by: disposeBag)
         
         self.view.addSubview(myView)
         
