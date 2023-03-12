@@ -25,10 +25,6 @@ class WeatherViewModelRx {
         foreCastWeatherDataRx = apiManagerRx.fetchForeCastData(city: cityRx, apiType: "ForeCast")
             .asObservable()
     }
-    
-    private func fetchAPIDataRx() {
-        
-    }
 }
 
 

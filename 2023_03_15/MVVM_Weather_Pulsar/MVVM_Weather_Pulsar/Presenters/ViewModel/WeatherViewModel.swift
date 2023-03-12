@@ -56,7 +56,5 @@ extension WeatherViewModel {
             view.degreeLabel.text = "\(String(describing: self.currentWeatherData?.main.temp))"
             view.humidityLabel.text = "\(String(describing: self.foreCastWeatherData?[0].main.humidity))"
         }
-        
     }
-
 }

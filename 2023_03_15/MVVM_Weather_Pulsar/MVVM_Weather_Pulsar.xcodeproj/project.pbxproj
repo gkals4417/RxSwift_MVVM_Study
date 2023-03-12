@@ -24,6 +24,8 @@
 		4DB4D5C629BD5980007E9898 /* APIManagerRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4D5C529BD597F007E9898 /* APIManagerRx.swift */; };
 		4DB4D5C829BD5A44007E9898 /* APIManagerTypeRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4D5C729BD5A44007E9898 /* APIManagerTypeRx.swift */; };
 		4DB4D5CA29BD6C5F007E9898 /* WeatherViewModelRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4D5C929BD6C5F007E9898 /* WeatherViewModelRx.swift */; };
+		4DB4D5CC29BD8C52007E9898 /* HomeVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4D5CB29BD8C52007E9898 /* HomeVIewCell.swift */; };
+		4DB4D5CE29BD8D54007E9898 /* HomeViewRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4D5CD29BD8D54007E9898 /* HomeViewRx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		4DB4D5C529BD597F007E9898 /* APIManagerRx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerRx.swift; sourceTree = "<group>"; };
 		4DB4D5C729BD5A44007E9898 /* APIManagerTypeRx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTypeRx.swift; sourceTree = "<group>"; };
 		4DB4D5C929BD6C5F007E9898 /* WeatherViewModelRx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelRx.swift; sourceTree = "<group>"; };
+		4DB4D5CB29BD8C52007E9898 /* HomeVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIewCell.swift; sourceTree = "<group>"; };
+		4DB4D5CD29BD8D54007E9898 /* HomeViewRx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRx.swift; sourceTree = "<group>"; };
 		75CEB106BA7C13304CBC969A /* Pods-MVVM_Weather_Pulsar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_Weather_Pulsar.debug.xcconfig"; path = "Target Support Files/Pods-MVVM_Weather_Pulsar/Pods-MVVM_Weather_Pulsar.debug.xcconfig"; sourceTree = "<group>"; };
 		8D73150A1D9B30A84759DF6D /* Pods-MVVM_Weather_Pulsar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_Weather_Pulsar.release.xcconfig"; path = "Target Support Files/Pods-MVVM_Weather_Pulsar/Pods-MVVM_Weather_Pulsar.release.xcconfig"; sourceTree = "<group>"; };
 		BA634192DCA9614B32FCAEFB /* Pods_MVVM_Weather_Pulsar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_Weather_Pulsar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				4D6192F429BAF7DB00B7708A /* HomeView.swift */,
+				4DB4D5CD29BD8D54007E9898 /* HomeViewRx.swift */,
+				4DB4D5CB29BD8C52007E9898 /* HomeVIewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,9 +327,11 @@
 				4DB4D5C829BD5A44007E9898 /* APIManagerTypeRx.swift in Sources */,
 				4D6192E129B95FDD00B7708A /* APIManager.swift in Sources */,
 				4DB4D5C629BD5980007E9898 /* APIManagerRx.swift in Sources */,
+				4DB4D5CC29BD8C52007E9898 /* HomeVIewCell.swift in Sources */,
 				4D6192F529BAF7DB00B7708A /* HomeView.swift in Sources */,
 				4D6192F029B9A08000B7708A /* SecondViewController.swift in Sources */,
 				4D6192EE29B99FD700B7708A /* FirstViewController.swift in Sources */,
+				4DB4D5CE29BD8D54007E9898 /* HomeViewRx.swift in Sources */,
 				4D6192DF29B95FD500B7708A /* APIManagerType.swift in Sources */,
 				4D6192E829B9602100B7708A /* CurrentWeatherModel.swift in Sources */,
 				4D6192EC29B96E8600B7708A /* ForecastWeatherModel.swift in Sources */,

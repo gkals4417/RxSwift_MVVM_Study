@@ -25,10 +25,8 @@ struct APIManagerRx: APIManagerTypeRx {
         }
     }
     
-    
-    
     func fetchCurrentData(city: String, apiType: String) -> Observable<CurrentWelcome> {
-        var urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)"
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=metric"
         
         print(urlString)
         
@@ -40,23 +38,12 @@ struct APIManagerRx: APIManagerTypeRx {
         
         return URLSession.shared.rx.data(request: request)
             .retry(3)
-//            .map { data -> CurrentWelcome in
-//                do {
-//                    let myData = try JSONDecoder().decode(CurrentWelcome.self, from: data)
-//                    print(myData)
-//                    return myData
-//                } catch {
-//                    print("ERROR : Failed Parse Current JSON")
-//                    return
-//                }
-//            }
             .map{try JSONDecoder().decode(CurrentWelcome.self, from: $0)}
             .asObservable()
     }
     
-    
     func fetchForeCastData(city: String, apiType: String) -> Observable<[ForeCastList]> {
-        var urlString = "https://api.openweathermap.org/data/2.5/forecast?q=\(city)&appid=\(apiKey)"
+        let urlString = "https://api.openweathermap.org/data/2.5/forecast?q=\(city)&appid=\(apiKey)&units=metric"
         
         print(urlString)
         
@@ -68,15 +55,6 @@ struct APIManagerRx: APIManagerTypeRx {
         
         return URLSession.shared.rx.data(request: request)
             .retry(3)
-//            .map { data -> [ForeCastList] in
-//                do {
-//                    let myData = try JSONDecoder().decode(ForeCastWelcome.self, from: data)
-//                    return myData.list
-//                } catch {
-//                    print("ERROR : Failed Parse Current JSON")
-//                    return
-//                }
-//            }
             .map{ try JSONDecoder().decode(ForeCastWelcome.self, from: $0).list}
             .asObservable()
     }
