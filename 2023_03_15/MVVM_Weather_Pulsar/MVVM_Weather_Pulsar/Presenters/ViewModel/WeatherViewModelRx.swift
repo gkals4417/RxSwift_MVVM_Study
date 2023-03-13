@@ -21,9 +21,7 @@ class WeatherViewModelRx {
         self.apiManagerRx = apiManagerRx
         self.cityRx = cityRx
         currentWeatherDataRx = apiManagerRx.fetchCurrentData(city: cityRx, apiType: "Current")
-            .asObservable()
         foreCastWeatherDataRx = apiManagerRx.fetchForeCastData(city: cityRx, apiType: "ForeCast")
-            .asObservable()
     }
 }
 
