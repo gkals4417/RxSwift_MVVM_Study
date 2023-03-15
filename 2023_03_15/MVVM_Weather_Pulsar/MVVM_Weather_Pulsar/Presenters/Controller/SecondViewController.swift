@@ -13,9 +13,10 @@ final class SecondViewController: UIViewController {
 
     
     //let myView = HomeView()
+    //let viewModel = WeatherViewModel(city: "Paris")
+    
     let myCollectionView = HomeViewRx()
 
-    //let viewModel = WeatherViewModel(city: "Paris")
     let viewModelRx = WeatherViewModelRx(cityRx: "Wellington")
     let disposeBag = DisposeBag()
     

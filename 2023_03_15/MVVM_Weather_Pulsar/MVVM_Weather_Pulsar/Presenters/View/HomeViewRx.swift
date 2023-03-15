@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewRx: UIView {
     
+    //메인화면의 collectionView
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -24,6 +25,8 @@ class HomeViewRx: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        //collectionView 추가
         self.addSubview(collectionView)
     }
     

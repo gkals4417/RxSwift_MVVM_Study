@@ -20,12 +20,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let firstVC = UINavigationController(rootViewController: FirstViewController())
-        let secondVC = UINavigationController(rootViewController: SecondViewController())
+//        let firstVC = UINavigationController(rootViewController: FirstViewController())
+//        let secondVC = UINavigationController(rootViewController: SecondViewController())
+        
+        let firstVC = FirstViewController()
+        let secondVC = SecondViewController()
+        
         let tabBarController = UITabBarController()
         
         tabBarController.setViewControllers([firstVC, secondVC], animated: true)
         tabBarController.tabBar.backgroundColor = UIColor(white: 1, alpha: 0.8)
+        tabBarController.tabBar.unselectedItemTintColor = .darkGray
+        tabBarController.tabBar.tintColor = .black
         
         if let items = tabBarController.tabBar.items {
             items[0].title = "서울"

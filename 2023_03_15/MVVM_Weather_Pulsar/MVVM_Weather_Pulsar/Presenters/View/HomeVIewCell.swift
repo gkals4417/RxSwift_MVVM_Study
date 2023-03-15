@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeVIewCell: UICollectionViewCell {
+    
+    //collectionView의 cell에 들어갈 내용들
     let cityLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,9 +39,12 @@ class HomeVIewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        //스택뷰에 추가
         stackView.addArrangedSubview(cityLabel)
         stackView.addArrangedSubview(degreeLabel)
         stackView.addArrangedSubview(humidityLabel)
+        
+        //스택뷰 추가
         self.addSubview(stackView)
     }
     

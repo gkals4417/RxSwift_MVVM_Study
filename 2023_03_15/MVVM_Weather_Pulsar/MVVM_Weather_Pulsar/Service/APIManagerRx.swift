@@ -12,6 +12,7 @@ struct APIManagerRx: APIManagerTypeRx {
 
     static let shared = APIManagerRx()
     
+    //plist에 있는 APIKEY 불러오기
     private var apiKey: String {
         get {
             guard let filePath = Bundle.main.path(forResource: "APIKey", ofType: "plist") else {
@@ -31,14 +32,19 @@ struct APIManagerRx: APIManagerTypeRx {
         print(urlString)
         
         guard let url = URL(string: urlString) else {
+            //url 생성에 실패할 경우 Observable의 에러 이벤트 방출
             return Observable.error(NSError(domain: "invalid_url", code: 0))
         }
         
         let request = URLRequest(url: url)
         
+        //Observable 리턴, Reactive Extension인 Reactive<URLSession>
         return URLSession.shared.rx.data(request: request)
-//            .retry(3)
+            //에러가 방출될 경우 3회 반복 시도
+            .retry(3)
+            //얻은 JSON을 decode.
             .map{try JSONDecoder().decode(CurrentWelcome.self, from: $0)}
+            //Observable로 변환
             .asObservable()
     }
     
@@ -54,7 +60,7 @@ struct APIManagerRx: APIManagerTypeRx {
         let request = URLRequest(url: url)
         
         return URLSession.shared.rx.data(request: request)
-//            .retry(3)
+            .retry(3)
             .map{ try JSONDecoder().decode(ForeCastWelcome.self, from: $0).list}
             .asObservable()
     }

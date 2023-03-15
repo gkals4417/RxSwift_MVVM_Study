@@ -17,6 +17,7 @@ class WeatherViewModelRx {
     let currentWeatherDataRx: Observable<CurrentWelcome>
     let foreCastWeatherDataRx: Observable<[ForeCastList]>
    
+    //ViewModel 인스턴스가 생성될 때 api 데이터를 받아옴
     init(apiManagerRx: APIManagerTypeRx = APIManagerRx.shared, cityRx: String) {
         self.apiManagerRx = apiManagerRx
         self.cityRx = cityRx

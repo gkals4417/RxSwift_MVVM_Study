@@ -12,8 +12,12 @@ import RxSwift
 final class FirstViewController: UIViewController {
     
     //let myView = HomeView()
-    let myCollectionView = HomeViewRx()
     //let viewModel = WeatherViewModel(city: "Seoul")
+    
+    //메인 화면 View
+    let myCollectionView = HomeViewRx()
+    
+    //ViewModel 인스턴스
     let viewModelRx = WeatherViewModelRx(cityRx: "Seoul")
     let disposeBag = DisposeBag()
     
@@ -39,14 +43,19 @@ final class FirstViewController: UIViewController {
 
 extension FirstViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //Current, 내일, 모레 날씨 세 화면
         return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeViewCell", for: indexPath) as! HomeVIewCell
+        
+        //첫번째 ~ 세번째 cell마다 보여줄 내용
         switch indexPath.row {
         case 0 :
+            //ViewModel의 날씨 데이터 구독
             self.viewModelRx.currentWeatherDataRx.subscribe { result in
+                //UI와 관련되어있기 때문에 메인쓰레드에서 진행
                 DispatchQueue.main.async {
                     cell.cityLabel.text = "\(result.name) 의 현재 날씨"
                     cell.degreeLabel.text = "기온 : \(result.main.temp) 도"
@@ -97,6 +106,8 @@ extension FirstViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //cell 하나의 크기를 collectionView의 크기와 동일하게 변경
+        //-> 한 화면에 cell 하나만 보임
         return collectionView.frame.size
     }
 }
